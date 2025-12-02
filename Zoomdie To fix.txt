@@ -1,0 +1,29 @@
+Zoomdie To fix:
+
+1. Holes on corners & grenates
+2. Add Animation and sound to enemy weapon
+3. Add Error messages on screen
+4. make bar for bullets
+5. Reloading Animation 
+6. Shooting capsules animation
+
+7. Enemy shooting count
+
+
+
+
+
+Controls:
+E - Interact
+R - Reload
+X - Drop gun 
+G - Toss grenade 
+T - Toss smoke grenade
+Space - Jump 
+WASD - move
+
+
+
+
+
+

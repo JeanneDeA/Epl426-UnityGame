@@ -24,10 +24,11 @@ public class Bullet : MonoBehaviour
             Debug.Log("Hit Player");
             hitTransform.GetComponent<PlayerHealth>().TakeDamage(10);
         }
-        else if(hitTransform.CompareTag("Zombie"))
+        else if(hitTransform.CompareTag("Z_Enemy"))
         {
             Debug.Log("Hit Enemy");
-            hitTransform.GetComponent<Zombie>().TakeDamage(m_damage);
+            Vector3 hitDirection = -transform.forward;
+            hitTransform.GetComponent<Z_Enemy>().TakeDamage(m_damage, hitDirection);
             Destroy(gameObject);
         }
         else if(hitTransform.CompareTag("Bottle"))

@@ -9,6 +9,12 @@ public class Throwable : MonoBehaviour
     private float m_delay = 5.0f;
 
     [SerializeField]
+    private int m_grenadeDamage = 70;
+
+    [SerializeField]
+    private int m_smokeDamage = 20;
+
+    [SerializeField]
     private float m_explosionRadius = 3.0f;
 
     [SerializeField]
@@ -78,6 +84,13 @@ public class Throwable : MonoBehaviour
             {
                 //Apply blindness effect to players/enemys in range
             }
+            Z_Enemy zombie = nearbyObject.GetComponent<Z_Enemy>();
+            if (zombie != null)
+            {
+                Vector3 hitDirection = (nearbyObject.transform.position - transform.position).normalized;
+                zombie.TakeDamage(this.m_smokeDamage, hitDirection);
+
+            }
         }
         //PlaySound
         SoundManager.m_instance.m_throwablesChanel.PlayOneShot(SoundManager.m_instance.m_smokeGrenadeSound);
@@ -97,6 +110,13 @@ public class Throwable : MonoBehaviour
             if(rb != null)
             {
                 rb.AddExplosionForce(m_explosionForce, transform.position, m_explosionRadius);
+            }
+
+            Z_Enemy zombie = nearbyObject.GetComponent<Z_Enemy>();
+            if (zombie != null)
+            {
+                Vector3 hitDirection = (nearbyObject.transform.position - transform.position).normalized;
+                zombie.TakeDamage(this.m_grenadeDamage, hitDirection);
             }
         }
         //PlaySound

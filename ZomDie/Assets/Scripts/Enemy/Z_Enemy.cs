@@ -60,15 +60,14 @@ public class Z_Enemy : MonoBehaviour
 
     }
 
-    private void Update()
+    private void OnDrawGizmos()
     {
-       if(m_navMeshAgent.velocity.magnitude > 0.1f)
-       {
-            m_animator.SetBool("isWalking", true);
-       }
-       else
-       {
-            m_animator.SetBool("isWalking", false);
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 2.5f); // Attack range
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, 18f); // Detection range
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, 21f); // Stop chase range
+
     }
 }

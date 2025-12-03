@@ -11,6 +11,8 @@ TagManager:
   - Grenade
   - Zombie
   - Z_Enemy
+  - Waypoints
+  - ZombieHand
   layers:
   - Default
   - TransparentFX

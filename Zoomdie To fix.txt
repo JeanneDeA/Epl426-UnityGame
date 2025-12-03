@@ -9,6 +9,8 @@ Zoomdie To fix:
 
 7. Enemy shooting count
 
+03/12/2025:
+1. AK bullet doesn't show when shooting
 
 
 
@@ -19,6 +21,8 @@ R - Reload
 X - Drop gun 
 G - Toss grenade 
 T - Toss smoke grenade
+1,2 - Weapon slot
+Left control 
 Space - Jump 
 WASD - move
 

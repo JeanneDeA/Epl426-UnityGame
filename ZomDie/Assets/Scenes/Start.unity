@@ -6247,16 +6247,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1132787076536255284, guid: f2bb887d9e6043244aade61e84aef28f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3644825915004372394, guid: f2bb887d9e6043244aade61e84aef28f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5741666847943638646, guid: f2bb887d9e6043244aade61e84aef28f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6361,11 +6351,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 7835187231084600009, guid: f2bb887d9e6043244aade61e84aef28f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.88427734
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -332,8 +332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerCamera: {fileID: 5466193930076980186}
-  m_XSensitivity: 50
-  m_YSensitivity: 50
+  m_XSensitivity: 20
+  m_YSensitivity: 20
 --- !u!114 &5279272485725553646
 MonoBehaviour:
   m_ObjectHideFlags: 0

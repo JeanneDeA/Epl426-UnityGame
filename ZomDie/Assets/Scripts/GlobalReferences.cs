@@ -11,6 +11,8 @@ public class GlobalReferences : MonoBehaviour
     public GameObject m_grenadeExposionEffect;
 
     public GameObject m_smokeGrenadeEffect;
+
+    public GameObject m_bloodSplatterEffectPrefab;
     /// <summary>
     /// Make sure there is only one instance of GlobalReferences
     /// </summary>

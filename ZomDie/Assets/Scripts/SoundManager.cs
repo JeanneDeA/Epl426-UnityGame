@@ -11,10 +11,20 @@ public class SoundManager : MonoBehaviour
     public AudioSource m_emptyMagazineSound1911;
     public AudioSource m_reloadingSoundAK74;
     public AudioSource m_throwablesChanel;
+    public AudioSource m_zombieChannel;
+    public AudioSource m_zombieChannel2;
     public AudioClip m_shotAK74;
     public AudioClip m_shotM1911;
     public AudioClip m_grenadeExplosion;
     public AudioClip m_smokeGrenadeSound;
+
+    public AudioClip m_zombieWalkSound;
+    public AudioClip m_zombieChaseSound;
+    public AudioClip m_zombieAttackSound;
+    public AudioClip m_zombieDieSound;
+    public AudioClip m_zombieHurtSound;
+
+    
 
     private void Awake()
     {

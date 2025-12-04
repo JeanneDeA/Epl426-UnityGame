@@ -21,6 +21,8 @@ public class Z_Enemy : MonoBehaviour
     [SerializeField]
     private Transform m_handHitbox_L;     
 
+    private bool m_isDead = false;
+
     private void Start()
     {
      
@@ -56,12 +58,15 @@ public class Z_Enemy : MonoBehaviour
         m_health -= damage;
         if (m_health <= 0)
         {
-
+            
+            Debug.Log("Z_Enemy Died");
             Die(hitDirection);
+            m_isDead = true;
         }
         else
         {
             m_animator.SetTrigger("DAMAGE");
+            SoundManager.m_instance.m_zombieChannel2.PlayOneShot(SoundManager.m_instance.m_zombieHurtSound);
         }
         Debug.Log($"Z_Enemy took {damage} damage, remaining health: {m_health}");
     }
@@ -89,7 +94,7 @@ public class Z_Enemy : MonoBehaviour
             // Hit came from the back → fall forward
             m_animator.SetTrigger("DIE_F");
         }
-
+        SoundManager.m_instance.m_zombieChannel2.PlayOneShot(SoundManager.m_instance.m_zombieDieSound);
     }
 
     void LateUpdate()
@@ -119,5 +124,10 @@ public class Z_Enemy : MonoBehaviour
 
         var yRotation = m_navMeshAgent.transform.rotation.eulerAngles.y;
         m_navMeshAgent.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    public bool IsDead()
+    {
+        return m_isDead;
     }
 }

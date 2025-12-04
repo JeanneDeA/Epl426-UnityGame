@@ -44,7 +44,13 @@ public class ZombiePatrolingState : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(m_agent.remainingDistance <= m_agent.stoppingDistance)
+        if(SoundManager.m_instance != null && !SoundManager.m_instance.m_zombieChannel.isPlaying)
+        {
+            SoundManager.m_instance.m_zombieChannel.clip = SoundManager.m_instance.m_zombieWalkSound;
+            SoundManager.m_instance.m_zombieChannel.PlayDelayed(5f);
+        }
+        //Patroling behavior
+        if (m_agent.remainingDistance <= m_agent.stoppingDistance)
         {
             int randomIndex = Random.Range(0, m_patrolPoints.Count);
             m_agent.SetDestination(m_patrolPoints[randomIndex].position);
@@ -67,5 +73,6 @@ public class ZombiePatrolingState : StateMachineBehaviour
     {
         //Stop Agent
         m_agent.SetDestination(animator.transform.position);
+        SoundManager.m_instance.m_zombieChannel.Stop();
     }
 }

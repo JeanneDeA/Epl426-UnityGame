@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,9 +27,15 @@ public class Bullet : MonoBehaviour
         }
         else if(hitTransform.CompareTag("Z_Enemy"))
         {
-            Debug.Log("Hit Enemy");
-            Vector3 hitDirection = -transform.forward;
-            hitTransform.GetComponent<Z_Enemy>().TakeDamage(m_damage, hitDirection);
+            if (!hitTransform.GetComponent<Z_Enemy>().IsDead())
+            {
+
+                Debug.Log("Hit Enemy");
+                Vector3 hitDirection = -transform.forward;
+                hitTransform.GetComponent<Z_Enemy>().TakeDamage(m_damage, hitDirection);
+               
+            }
+            CreateBloodsprayEffect(objectHit);
             Destroy(gameObject);
         }
         else if(hitTransform.CompareTag("Bottle"))
@@ -42,7 +49,15 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-   private void CreateBulletImpactEffect(Collision objectHit)
+    private void CreateBloodsprayEffect(Collision objectHit)
+    {
+        ContactPoint contanct = objectHit.contacts[0];
+        GameObject bloodSpray = Instantiate(GlobalReferences.m_instance.m_bloodSplatterEffectPrefab, contanct.point, Quaternion.LookRotation(contanct.normal));
+        bloodSpray.transform.SetParent(objectHit.gameObject.transform);
+
+    }
+
+    private void CreateBulletImpactEffect(Collision objectHit)
    {
         ContactPoint contanct = objectHit.contacts[0];
         GameObject hole = Instantiate(GlobalReferences.m_instance.m_bulletImpactStoneEffectPrefab, contanct.point, Quaternion.LookRotation(contanct.normal));

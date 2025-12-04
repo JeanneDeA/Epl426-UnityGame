@@ -29,6 +29,17 @@ public class ZombieChaseState : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //if (SoundManager.m_instance != null && !SoundManager.m_instance.m_zombieChannel.isPlaying)
+        //{
+        //    SoundManager.m_instance.m_zombieChannel.clip = SoundManager.m_instance.m_zombieChaseSound;
+        //    SoundManager.m_instance.m_zombieChannel.PlayDelayed(1f);
+        //}
+           if(SoundManager.m_instance != null && !SoundManager.m_instance.m_zombieChannel.isPlaying)
+        {
+            //SoundManager.m_instance.m_zombieChannel.clip = SoundManager.m_instance.m_zombieWalkSound;
+            SoundManager.m_instance.m_zombieChannel.PlayOneShot(SoundManager.m_instance.m_zombieChaseSound);
+        }
+
         m_agent.SetDestination(m_player.position);
         animator.transform.LookAt(m_player);
 
@@ -47,5 +58,6 @@ public class ZombieChaseState : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_agent.SetDestination(animator.transform.position);
+        SoundManager.m_instance.m_zombieChannel.Stop();
     }
 }

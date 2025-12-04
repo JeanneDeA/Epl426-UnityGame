@@ -11,7 +11,7 @@ public class ZombieChaseState : StateMachineBehaviour
     [SerializeField]
     private float m_stopChaseDistance = 21f;
     [SerializeField]
-    private float m_attackDistance = 3f;
+    private float m_attackDistance = 2f;
 
 
     private Transform m_player;

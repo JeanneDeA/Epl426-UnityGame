@@ -13,10 +13,42 @@ public class Z_Enemy : MonoBehaviour
 
     private NavMeshAgent m_navMeshAgent;
 
+
+    private Transform m_player;
+
+    [SerializeField]
+    private Transform m_handHitbox_R;    
+    [SerializeField]
+    private Transform m_handHitbox_L;     
+
     private void Start()
     {
-        m_animator = GetComponentInChildren<Animator>();
+     
+    }
+
+    private void Awake()
+    {
+        m_animator = GetComponent<Animator>();
         m_navMeshAgent = GetComponent<NavMeshAgent>();
+        m_player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        Transform handBone_R = m_animator.GetBoneTransform(HumanBodyBones.RightHand);
+        Transform handBone_L = m_animator.GetBoneTransform(HumanBodyBones.LeftHand);
+        if (handBone_R == null || handBone_L == null)
+        {
+            Debug.LogError(" hand bone not found on animator!");
+            return;
+        }
+        // Parent the hitbox to the hand bone
+        m_handHitbox_R.SetParent(handBone_R, false);
+        m_handHitbox_L.SetParent(handBone_L, false);
+        // Offset relative to the bone
+        m_handHitbox_R.localPosition = new Vector3(-0.112f, 0f, 0f);
+        m_handHitbox_L.localPosition = new Vector3(-0.112f, 0f, 0f);
+
+        // Keep the same rotation as the bone
+        m_handHitbox_R.localRotation = Quaternion.identity;
+        m_handHitbox_L.localRotation = Quaternion.identity;
     }
 
     public void TakeDamage(int damage,Vector3 hitDirection)
@@ -60,6 +92,15 @@ public class Z_Enemy : MonoBehaviour
 
     }
 
+    void LateUpdate()
+    {
+        if (!m_animator.GetBool("isAttacking"))
+        {
+            return;
+        }  
+        LookAtPlayer();
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -69,5 +110,14 @@ public class Z_Enemy : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, 21f); // Stop chase range
 
+    }
+
+    private void LookAtPlayer()
+    {
+        Vector3 direction = (m_player.position - m_navMeshAgent.transform.position).normalized;
+        m_navMeshAgent.transform.rotation = Quaternion.LookRotation(direction);
+
+        var yRotation = m_navMeshAgent.transform.rotation.eulerAngles.y;
+        m_navMeshAgent.transform.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }

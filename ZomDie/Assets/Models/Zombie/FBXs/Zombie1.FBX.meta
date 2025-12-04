@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 8f7380da49034cd488ddff94b1ac35d1
 ModelImporter:
-  serializedVersion: 26
+  serializedVersion: 22200
   internalIDToNameTable:
   - first:
       74: -6257440219318784398
@@ -13,7 +13,7 @@ ModelImporter:
       name: Zombie
     second: {fileID: 2100000, guid: 9fdb5531bdf185e448dd06dfa8192f8d, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -22,6 +22,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -36,7 +37,135 @@ ModelImporter:
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
-    extraExposedTransformPaths: []
+    extraExposedTransformPaths:
+    - Z_L_ArmPalm
+    - Z_R_ArmPalm
+    - Z_Body
+    - Base HumanPelvis
+    - Base HumanPelvis/Base HumanRThigh
+    - Base HumanPelvis/Base HumanRThigh/Base HumanRCalf
+    - Base HumanPelvis/Base HumanRThigh/Base HumanRCalf/Base HumanRFoot
+    - Base HumanPelvis/Base HumanRThigh/Base HumanRCalf/Base HumanRFoot/Base HumanRDigit11
+    - Base HumanPelvis/Base HumanSpine1
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanNeck
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanNeck/Base
+      HumanHead
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanNeck/Base
+      HumanHead/Base HumanHeadJaw
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanNeck/Base
+      HumanHead/Base HumanHeadLEyelid
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanNeck/Base
+      HumanHead/Base HumanHeadREyelid
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanNeck/Base
+      HumanHead/Base HumanHeadREye
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanNeck/Base
+      HumanHead/Base HumanLEye
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit11
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit11/Base
+      HumanRArmDigit12
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit21
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit21/Base
+      HumanRArmDigit22
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit21/Base
+      HumanRArmDigit22/Base HumanRArmDigit23
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit31
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+      HumanRArmDigit32
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+      HumanRArmDigit32/Base HumanRArmDigit33
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit41
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+      HumanRArmDigit42
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+      HumanRArmDigit42/Base HumanRArmDigit43
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit51
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit51/Base
+      HumanRArmDigit52
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanRArmCollarbone/Base
+      HumanRArmUpperarm/Base HumanRArmForearm/Base HumanRArmPalm/Base HumanRArmDigit51/Base
+      HumanRArmDigit52/Base HumanRArmDigit53
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit11
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit11/Base
+      HumanLArmDigit12
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit21
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit21/Base
+      HumanLArmDigit22
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit21/Base
+      HumanLArmDigit22/Base HumanLArmDigit23
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit31
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit31/Base
+      HumanLArmDigit32
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit31/Base
+      HumanLArmDigit32/Base HumanLArmDigit33
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit41
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit41/Base
+      HumanLArmDigit42
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit41/Base
+      HumanLArmDigit42/Base HumanLArmDigit43
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit51
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit51/Base
+      HumanLArmDigit52
+    - Base HumanPelvis/Base HumanSpine1/Base HumanSpine2/Base HumanRibcage/Base HumanLArmCollarbone/Base
+      HumanLArmUpperarm/Base HumanLArmForearm/Base HumanLArmPalm/Base HumanLArmDigit51/Base
+      HumanLArmDigit52/Base HumanLArmDigit53
+    - Base HumanPelvis/Base HumanLLegThigh
+    - Base HumanPelvis/Base HumanLLegThigh/Base HumanLLegCalf
+    - Base HumanPelvis/Base HumanLLegThigh/Base HumanLLegCalf/Base HumanLLegFoot
+    - Base HumanPelvis/Base HumanLLegThigh/Base HumanLLegCalf/Base HumanLLegFoot/Base
+      HumanLLegDigit11
+    - Z_L_Forearm
+    - Z_L_Upperarm
+    - Z_Head
+    - Z_L_LegCalf
+    - Z_L_LegThigh
+    - Z_R_LegCalf
+    - Z_R_LegThigh
+    - Z_BodyTop
+    - Z_R_Upperarm
+    - Z_R_Forearm
+    - Z_Hip
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
@@ -76,26 +205,35 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -106,7 +244,6 @@ ModelImporter:
     normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
     serializedVersion: 3
     human:
@@ -890,8 +1027,13 @@ ModelImporter:
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

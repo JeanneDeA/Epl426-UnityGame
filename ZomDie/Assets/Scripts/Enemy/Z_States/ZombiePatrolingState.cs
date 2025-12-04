@@ -24,7 +24,7 @@ public class ZombiePatrolingState : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
        m_player = GameObject.FindGameObjectWithTag("Player").transform;
-        m_agent = animator.GetComponent<NavMeshAgent>();    
+       m_agent = animator.GetComponent<NavMeshAgent>();    
 
         m_agent.speed = m_patrolSpeed;
         m_timer = 0f;

@@ -109,5 +109,10 @@ public class PlayerHealth : MonoBehaviour
         m_currentHealth += healAmount;
         m_lerpTimer = 0f;
     }
+
+    public float GetHealth()
+    {
+        return m_currentHealth;
+    }
 }
 

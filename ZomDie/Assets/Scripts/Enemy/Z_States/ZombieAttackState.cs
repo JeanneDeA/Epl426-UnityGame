@@ -17,13 +17,14 @@ public class ZombieAttackState : StateMachineBehaviour
         m_agent.updateRotation = false;
 
 
+
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (m_player == null) return;
         if (m_agent == null) return;
-        LookAtPlayer();
+        //LookAtPlayer();
 
         float distanceFromPlayer = Vector3.Distance(m_player.position, animator.transform.position);
         if (distanceFromPlayer > m_stopAttackingDistance)

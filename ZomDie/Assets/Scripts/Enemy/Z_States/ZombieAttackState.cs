@@ -11,6 +11,7 @@ public class ZombieAttackState : StateMachineBehaviour
     [SerializeField] private Vector2 m_attackSoundDelayRange = new Vector2(0.3f, 1.0f);
     private float m_nextAttackSoundTime;
 
+    private PlayerHealth m_playerHealth;
     private Transform m_player;
     private NavMeshAgent m_agent;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -34,8 +35,9 @@ public class ZombieAttackState : StateMachineBehaviour
 
         if (SoundManager.m_instance != null && !SoundManager.m_instance.m_zombieChannel.isPlaying)
         {
-            //SoundManager.m_instance.m_zombieChannel.clip = SoundManager.m_instance.m_zombieWalkSound;
-            SoundManager.m_instance.m_zombieChannel.PlayOneShot(SoundManager.m_instance.m_zombieAttackSound);
+                //SoundManager.m_instance.m_zombieChannel.clip = SoundManager.m_instance.m_zombieWalkSound;
+                SoundManager.m_instance.m_zombieChannel.PlayOneShot(SoundManager.m_instance.m_zombieAttackSound);
+       
         }
 
         if (m_player == null) return;

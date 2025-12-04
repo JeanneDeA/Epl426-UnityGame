@@ -10,18 +10,31 @@ public class PlayerHealth : MonoBehaviour
     private float m_currentHealth;
     private float m_lerpTimer;                  // Timer for lerping health bar
     private float m_maxHealth = 100f;
+    private bool m_isDead = false;
 
     [Header("Health Bar")]
-    public float m_chipSpeed = 2f;              // Speed at which the health bar chips away
-    public TMP_Text m_healthText;
-    public Image m_frontHealthBar;
-    public Image m_backHealthBar;
+    [SerializeField]
+    private float m_chipSpeed = 2f;              // Speed at which the health bar chips away
+    [SerializeField]
+    private TMP_Text m_healthText;
+    [SerializeField]
+    private Image m_frontHealthBar;
+    [SerializeField]
+    private Image m_backHealthBar;
 
     [Header("Damage Overlay")]
-    public Image m_damageOverlay;
-    public float m_fadeSpeed = 1.5f;            // Speed at which the damage overlay fades
-    public float m_damageOverlayDuration = 1f;  // Duration the damage overlay stays fully visible
+    [SerializeField]
+    private Image m_damageOverlay;
+    [SerializeField]
+    private float m_fadeSpeed = 1.5f;            // Speed at which the damage overlay fades
+    [SerializeField]
+    private float m_damageOverlayDuration = 1f;  // Duration the damage overlay stays fully visible
     private float m_damageOverlayDurationTimer;// Timer for damage overlay duration
+
+    [Header("UI")]
+    [SerializeField]
+    private GameObject  m_gameOverUI;
+
 
     void Start()
     {
@@ -92,11 +105,16 @@ public class PlayerHealth : MonoBehaviour
     /// <param name="damage">The amount of damage to subtract from the player's health.</param>
     public void TakeDamage(float damage)
     {
+        SoundManager.m_instance.m_playerChannel.PlayOneShot(SoundManager.m_instance.m_playerHurtSound);
         m_currentHealth -= damage;
         m_lerpTimer = 0f;
         m_damageOverlayDurationTimer = 0f;
         m_damageOverlay.color = new Color(m_damageOverlay.color.r, m_damageOverlay.color.g, m_damageOverlay.color.b, 1);
 
+        if (m_currentHealth <= 0)
+        {
+            PlayerDead();
+        }
     }
 
     /// <summary>
@@ -113,6 +131,38 @@ public class PlayerHealth : MonoBehaviour
     public float GetHealth()
     {
         return m_currentHealth;
+    }
+
+    private void PlayerDead()
+    {
+
+        SoundManager.m_instance.m_playerChannel.PlayOneShot(SoundManager.m_instance.m_playerDieSound);
+
+
+        SoundManager.m_instance.m_zombieChannel2.Stop();
+        SoundManager.m_instance.m_zombieChannel.Stop();
+        SoundManager.m_instance.m_playerChannel.clip = SoundManager.m_instance.m_playerDeadMusic;
+        SoundManager.m_instance.m_playerChannel.PlayDelayed(1f);
+
+
+        GetComponent<PlayerMotor>().enabled = false;
+        GetComponent<InputManager>().enabled = false;
+        m_isDead = true;
+
+        //Dying Animation
+        GetComponent<Animator>().enabled = true;
+        GetComponent<ScreenFader>().StartFade();
+        StartCoroutine(ShowGameOverUI());
+    }
+    private IEnumerator ShowGameOverUI()
+    {
+        yield return new WaitForSeconds(1f); // Wait for fade to complete
+        m_gameOverUI.SetActive(true);
+    }
+
+    public bool IsDead()
+    {
+        return m_isDead;
     }
 }
 

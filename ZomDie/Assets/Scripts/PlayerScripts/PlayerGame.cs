@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Processors;
 
 public class PlayerGame : MonoBehaviour
 {
@@ -15,8 +16,12 @@ public class PlayerGame : MonoBehaviour
     {
         if (other.CompareTag("ZombieHand"))
         {
-            Debug.Log("Player hit by zombie hand!");
-            m_healthComponent.TakeDamage(10);
+            if (!m_healthComponent.IsDead())
+            {
+                Debug.Log("Player hit by zombie hand!");
+                m_healthComponent.TakeDamage(10);
+            }
+          
         }
     }
 

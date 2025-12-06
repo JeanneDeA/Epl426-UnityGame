@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_idleDuration: 4
   m_detectionRadius: 18
+  m_chaseZombie: 0
 --- !u!1102 &-7809496453102109005
 AnimatorState:
   serializedVersion: 6
@@ -55,6 +56,7 @@ MonoBehaviour:
   m_patrolingTime: 10
   m_patrolSpeed: 1.5
   m_detectionRadius: 18
+  m_chaseZombie: 0
 --- !u!1102 &-6390825767581842644
 AnimatorState:
   serializedVersion: 6
@@ -96,6 +98,7 @@ MonoBehaviour:
   m_chasingSpeed: 6
   m_stopChaseDistance: 21
   m_attackDistance: 1.5
+  m_chaseZombie: 0
 --- !u!1102 &-3256455168186911665
 AnimatorState:
   serializedVersion: 6
@@ -163,6 +166,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_stopAttackingDistance: 2.5
+  m_attackSoundDelayRange: {x: 0.3, y: 1}
+  m_chaseZombie: 0
 --- !u!1102 &-1271093551814842553
 AnimatorState:
   serializedVersion: 6
@@ -231,6 +236,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: isAttacking
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: chaseZombie
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0

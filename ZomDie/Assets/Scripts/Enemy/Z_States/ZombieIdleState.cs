@@ -11,6 +11,8 @@ public class ZombieIdleState : StateMachineBehaviour
     [SerializeField]
     private float m_detectionRadius = 18f;
 
+    [HideInInspector]
+    public bool m_chaseZombie = false;
 
     private float m_timer;
     private Transform m_player;
@@ -19,10 +21,15 @@ public class ZombieIdleState : StateMachineBehaviour
     {
         m_timer = 0;
         m_player = GameObject.FindGameObjectWithTag("Player").transform;
+        if(m_chaseZombie)
+        {
+            m_detectionRadius = 1000f;
+        }
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+  
         // To patrol state
         m_timer += Time.deltaTime;
         if(m_timer > m_idleDuration)

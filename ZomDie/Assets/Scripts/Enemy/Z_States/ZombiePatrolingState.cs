@@ -13,6 +13,8 @@ public class ZombiePatrolingState : StateMachineBehaviour
     [SerializeField]
     private float m_detectionRadius = 18f;
 
+    [HideInInspector]
+    public bool m_chaseZombie = false;
 
     private float m_timer;
     private Transform m_player;
@@ -23,7 +25,11 @@ public class ZombiePatrolingState : StateMachineBehaviour
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       m_player = GameObject.FindGameObjectWithTag("Player").transform;
+        if (m_chaseZombie)
+        {
+            m_detectionRadius = 1000f;
+        }
+        m_player = GameObject.FindGameObjectWithTag("Player").transform;
        m_agent = animator.GetComponent<NavMeshAgent>();    
 
         m_agent.speed = m_patrolSpeed;

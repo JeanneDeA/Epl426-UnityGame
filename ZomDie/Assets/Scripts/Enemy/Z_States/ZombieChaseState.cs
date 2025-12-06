@@ -13,6 +13,8 @@ public class ZombieChaseState : StateMachineBehaviour
     [SerializeField]
     private float m_attackDistance = 2f;
 
+    [HideInInspector]
+    public bool m_chaseZombie = false;
 
     private Transform m_player;
     private NavMeshAgent m_agent;
@@ -24,6 +26,10 @@ public class ZombieChaseState : StateMachineBehaviour
         m_agent = animator.GetComponent<NavMeshAgent>();
 
         m_agent.speed = m_chasingSpeed;
+        if (m_chaseZombie)
+        {
+            m_stopChaseDistance = 1005f;
+        }
 
     }
 

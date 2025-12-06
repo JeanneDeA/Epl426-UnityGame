@@ -23,9 +23,14 @@ public class Z_Enemy : MonoBehaviour
 
     private bool m_isDead = false;
 
+    public bool m_chaseZombie = false;
+
     private void Start()
     {
-     
+        if (m_chaseZombie)
+        {
+            ChangeZombieBehaviourToChase();
+        }
     }
 
     private void Awake()
@@ -129,5 +134,31 @@ public class Z_Enemy : MonoBehaviour
     public bool IsDead()
     {
         return m_isDead;
+    }
+
+    private void ChangeZombieBehaviourToChase()
+    {
+        var animator = GetComponent<Animator>();
+        // Get all state scripts of each type
+        var idleStates = animator.GetBehaviours<ZombieIdleState>();
+        var patrolStates = animator.GetBehaviours<ZombiePatrolingState>();
+        var chaseStates = animator.GetBehaviours<ZombieChaseState>();
+
+        // Set the value for all of them
+        foreach (var s in idleStates)
+        {
+            s.m_chaseZombie = true;
+        }
+
+        foreach (var s in patrolStates)
+        {
+            s.m_chaseZombie = true;
+        }
+
+        foreach (var s in chaseStates)
+        {
+            s.m_chaseZombie = true;
+        }
+           
     }
 }

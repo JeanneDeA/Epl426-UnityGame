@@ -14,6 +14,12 @@ public class ZombieAttackState : StateMachineBehaviour
     private PlayerHealth m_playerHealth;
     private Transform m_player;
     private NavMeshAgent m_agent;
+
+
+    [HideInInspector]
+    public bool m_chaseZombie = false;
+
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_player = GameObject.FindGameObjectWithTag("Player").transform;

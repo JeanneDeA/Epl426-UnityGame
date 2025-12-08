@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -137,8 +138,7 @@ public class PlayerHealth : MonoBehaviour
     {
 
         SoundManager.m_instance.m_playerChannel.PlayOneShot(SoundManager.m_instance.m_playerDieSound);
-
-
+        
         SoundManager.m_instance.m_zombieChannel2.Stop();
         SoundManager.m_instance.m_zombieChannel.Stop();
         SoundManager.m_instance.m_playerChannel.clip = SoundManager.m_instance.m_playerDeadMusic;
@@ -158,6 +158,22 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(1f); // Wait for fade to complete
         m_gameOverUI.SetActive(true);
+
+        int waveSurvived = GlobalReferences.m_instance.m_waveNumber;
+        if(waveSurvived-1 > SaveLoadManagment.m_instance.LoadHighScore())
+        {
+            SaveLoadManagment.m_instance.SaveHighScore(waveSurvived - 1);
+        }
+
+        StartCoroutine(ReturnToMainMenu());
+    }
+
+    private IEnumerator ReturnToMainMenu()
+    {
+        yield return new WaitForSeconds(5f);
+        GetComponent<InputManager>().enabled = false;
+
+        SceneManager.LoadScene("MainMenu");
     }
 
     public bool IsDead()

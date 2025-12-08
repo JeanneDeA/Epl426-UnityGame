@@ -11,7 +11,6 @@ public class ZombieAttackState : StateMachineBehaviour
     [SerializeField] private Vector2 m_attackSoundDelayRange = new Vector2(0.3f, 1.0f);
     private float m_nextAttackSoundTime;
 
-    private PlayerHealth m_playerHealth;
     private Transform m_player;
     private NavMeshAgent m_agent;
 
@@ -50,8 +49,13 @@ public class ZombieAttackState : StateMachineBehaviour
         if (m_agent == null) return;
         //LookAtPlayer();
 
+        if (m_player.GetComponent<PlayerHealth>().IsDead())
+        {
+            animator.SetTrigger("toIdle");
+            return;
+        }
         float distanceFromPlayer = Vector3.Distance(m_player.position, animator.transform.position);
-        if (distanceFromPlayer > m_stopAttackingDistance)
+        if (distanceFromPlayer > m_stopAttackingDistance )
         {
             animator.SetBool("isAttacking", false);
         }

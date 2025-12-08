@@ -29,7 +29,13 @@ public class ZombieIdleState : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-  
+
+        if(m_player.GetComponent<PlayerHealth>().IsDead())
+        {
+            animator.SetBool("isChasing", false);
+            animator.SetBool("isPatroling", false);
+            return;
+        }
         // To patrol state
         m_timer += Time.deltaTime;
         if(m_timer > m_idleDuration)

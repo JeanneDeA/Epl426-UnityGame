@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class ZombieChaseState : StateMachineBehaviour
 {
     [SerializeField]
-    private float m_chasingSpeed = 6f;
+    private float m_chasingSpeed = 4f;
 
     [SerializeField]
     private float m_stopChaseDistance = 21f;
@@ -18,6 +18,7 @@ public class ZombieChaseState : StateMachineBehaviour
 
     private Transform m_player;
     private NavMeshAgent m_agent;
+
 
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -50,12 +51,19 @@ public class ZombieChaseState : StateMachineBehaviour
         animator.transform.LookAt(m_player);
 
         float distanceFromPlayer = Vector3.Distance(m_player.position, animator.transform.position);
-        if (distanceFromPlayer > m_stopChaseDistance)
+
+        if (m_player.GetComponent<PlayerHealth>().IsDead())
+        {
+            animator.SetBool("isChasing", false);
+            animator.SetBool("isPatroling", false);
+
+        }
+        else if (distanceFromPlayer > m_stopChaseDistance )
         {
             animator.SetBool("isChasing", false);
         }
         // To attack state
-        if (distanceFromPlayer < m_attackDistance)
+        else if (distanceFromPlayer < m_attackDistance)
         {
             animator.SetBool("isAttacking", true);
         }

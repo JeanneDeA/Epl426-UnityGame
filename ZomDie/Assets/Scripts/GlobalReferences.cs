@@ -15,6 +15,7 @@ public class GlobalReferences : MonoBehaviour
     public GameObject m_bloodSplatterEffectPrefab;
 
     public int m_waveNumber = 0;
+
     /// <summary>
     /// Make sure there is only one instance of GlobalReferences
     /// </summary>

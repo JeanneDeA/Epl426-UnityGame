@@ -117,4 +117,9 @@ public class ZombieSpawController : MonoBehaviour
        m_currentZombiesPerWave *= 2; // Double the number of zombies for the next wave
        StartNextWave();
     }
+
+    public int GetCurrentWave()
+    {
+        return m_currentWave;
+    }
 }

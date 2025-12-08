@@ -35,6 +35,8 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI")]
     [SerializeField]
     private GameObject  m_gameOverUI;
+    [SerializeField]
+    private TMP_Text m_waveCounter;
 
 
     void Start()
@@ -160,7 +162,10 @@ public class PlayerHealth : MonoBehaviour
         m_gameOverUI.SetActive(true);
 
         int waveSurvived = GlobalReferences.m_instance.m_waveNumber;
-        if(waveSurvived-1 > SaveLoadManagment.m_instance.LoadHighScore())
+        m_waveCounter.text = $"Waves Survived: {waveSurvived-1}";
+        m_waveCounter.gameObject.SetActive(true);
+
+        if (waveSurvived-1 > SaveLoadManagment.m_instance.LoadHighScore())
         {
             SaveLoadManagment.m_instance.SaveHighScore(waveSurvived - 1);
         }
@@ -171,8 +176,6 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator ReturnToMainMenu()
     {
         yield return new WaitForSeconds(5f);
-        GetComponent<InputManager>().enabled = false;
-
         SceneManager.LoadScene("MainMenu");
     }
 

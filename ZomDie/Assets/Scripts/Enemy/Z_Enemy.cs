@@ -107,8 +107,11 @@ public class Z_Enemy : MonoBehaviour
         if (!m_animator.GetBool("isAttacking"))
         {
             return;
-        }  
-        LookAtPlayer();
+        }
+        if (!m_isDead)
+        {
+          LookAtPlayer();
+        }
     }
 
     private void OnDrawGizmos()

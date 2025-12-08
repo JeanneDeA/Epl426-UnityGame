@@ -116,7 +116,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0.00078495237}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4066, y: 1.4066, z: 1.4066}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7314311290455260012}
@@ -208,7 +208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_delay: 2
-  m_explosionRadius: 3
+  m_grenadeDamage: 75
+  m_smokeDamage: 25
+  m_explosionRadius: 5
   m_explosionForce: 700
   m_type: 2
 --- !u!114 &8781360500442598967

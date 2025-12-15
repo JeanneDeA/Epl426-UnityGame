@@ -127,6 +127,11 @@ public class PlayerHealth : MonoBehaviour
     /// <param name="healAmount">The amount of health to restore to the player.</param>
     public void RestoreHealth(float healAmount)
     {
+        if (m_currentHealth + healAmount >=100){
+            m_currentHealth = 100;
+            m_lerpTimer = 0f;
+            return;
+        }
         m_currentHealth += healAmount;
         m_lerpTimer = 0f;
     }

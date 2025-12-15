@@ -9,7 +9,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private TMP_Text m_hightScoreUI;
 
-    private readonly string m_newGameScene = "Test 1";
+    [SerializeField]
+    private string m_newGameScene = "Test 1";
 
     // Start is called before the first frame update
     void Start()

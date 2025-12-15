@@ -540,6 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hightScoreUI: {fileID: 1853350190}
+  m_newGameScene: Test 2
 --- !u!4 &1003238083
 Transform:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ TagManager:
   - Z_Enemy
   - Waypoints
   - ZombieHand
+  - HealthPack
   layers:
   - Default
   - TransparentFX

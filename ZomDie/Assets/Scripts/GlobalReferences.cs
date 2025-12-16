@@ -20,6 +20,7 @@ public class GlobalReferences : MonoBehaviour
 
     public GameObject m_smokeGrenadePrefab;
 
+    public GameObject m_healthPackPrefab;
     public int m_waveNumber = 0;
 
     /// <summary>

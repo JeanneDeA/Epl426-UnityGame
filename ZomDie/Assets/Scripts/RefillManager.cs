@@ -72,6 +72,7 @@ public class RefillManager : MonoBehaviour
 
             healthAmount = healthAmount
         });
+        Debug.Log("Registered Health Pack for refill: " + prefab.name);
     }
 
     // ---------- THROWABLE ----------
@@ -95,6 +96,7 @@ public class RefillManager : MonoBehaviour
     // ---------- REFILL ----------
     public void RefillAll()
     {
+        Debug.Log("Refilling " + m_requests.Count + " items.");
         foreach (var r in m_requests)
         {
             GameObject obj = Instantiate(r.prefab, r.parent);
@@ -121,12 +123,12 @@ public class RefillManager : MonoBehaviour
                 throwable.m_type = r.throwableType;
             }
 
-            // Restore Health (example)
-            //HealthPickup health = obj.GetComponentInChildren<HealthPickup>(true);
-            //if (health != null && r.healthAmount > 0)
-            //{
-            //    health.SetHealthAmount(r.healthAmount);
-            //}
+            // Restore HealthPack
+            HealthPack health = obj.GetComponentInChildren<HealthPack>(true);
+            if (health != null && r.healthAmount > 0)
+            {
+                health.SetHealthAmmount(r.healthAmount);
+            }
         }
 
         m_requests.Clear();

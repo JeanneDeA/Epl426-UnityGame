@@ -22,6 +22,8 @@ public class PlayerInteract : MonoBehaviour
 
     private GameObject m_hoveredGrenade =null;
 
+    private GameObject m_hoveredHealthPack = null;
+
     void Start()
     {
         m_camera = GetComponentInChildren<Camera>();
@@ -60,6 +62,11 @@ public class PlayerInteract : MonoBehaviour
                     m_hoveredGrenade = hitInfo.collider.gameObject;
                     OutlineGrenade();
                 }
+                if(interactable.CompareTag("HealthPack"))
+                {
+                    m_hoveredHealthPack = hitInfo.collider.gameObject;
+                    OutlineHealthPack();
+                }
                 //update the ui text to show the interactable's prompt message
                 m_playerUI.UpdateText(interactable.m_promtMessage);
                 //if we press the interact button,call the interact method on the interactable object
@@ -86,6 +93,11 @@ public class PlayerInteract : MonoBehaviour
            // Debug.Log("No longer hovering over grenade");
             RemoveOutlineGrenade();
         }
+        if(m_hoveredHealthPack != null)
+        {
+           // Debug.Log("No longer hovering over health pack");
+            RemoveOutlineHealthPack();
+        }
     }
 
     public void OutlineWeapon()
@@ -106,6 +118,14 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
+    public void OutlineHealthPack()
+    {
+        var outlineComp = m_hoveredHealthPack.GetComponent<Outline>();
+        if (outlineComp != null)
+        {
+            outlineComp.enabled = true;
+        }
+    }
     public void OutlineGrenade()
     {
         var outlineComp = m_hoveredGrenade.GetComponent<Outline>();
@@ -114,6 +134,19 @@ public class PlayerInteract : MonoBehaviour
             outlineComp.enabled = true;
         }
     }
+
+    public void RemoveOutlineHealthPack()
+    {
+       // Debug.Log("Removing Outline from health pack");
+        var outlineComp = m_hoveredHealthPack.GetComponent<Outline>();
+            if (outlineComp != null)
+            {
+                outlineComp.enabled = false;
+            }
+            m_hoveredHealthPack = null;
+    }
+
+
 
     public void RemoveOutlineGrenade()
     {

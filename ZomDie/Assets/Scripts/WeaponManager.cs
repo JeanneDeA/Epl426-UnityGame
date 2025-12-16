@@ -336,6 +336,7 @@ public class WeaponManager : MonoBehaviour
         }
         if(destroy)
         {
+            //RefillManager.m_instance.RegisterRefillObject(gameObject);
             Destroy(gameObject);
         }
     }

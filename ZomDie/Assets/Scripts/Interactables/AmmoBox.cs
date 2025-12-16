@@ -12,12 +12,19 @@ public class AmmoBox : Interactable
 
     protected override void Interact()
     {
-        WeaponManager.m_instance.PickUpAmmo(gameObject.GetComponent<AmmoBox>());
-        Destroy(gameObject);
+        WeaponManager.m_instance.PickUpAmmo(gameObject.GetComponentInChildren<AmmoBox>());
+        //Debug.Log($"RefillManager={RefillManager.m_instance}, GlobalRefs={GlobalReferences.m_instance}, Prefab={(GlobalReferences.m_instance ? GlobalReferences.m_instance.m_ammoBoxPrefab : null)}");
+        RefillManager.m_instance.RegisterAmmoBox(GlobalReferences.m_instance.m_ammoBoxPrefab, transform.parent,this);
+        Destroy(transform.parent.gameObject);
     }
 
     public int GetAmmoAmount()
     {
         return m_ammoAmount;
+    }
+
+    public void SetAmmoAmount(int amount)
+    {
+        m_ammoAmount = amount;
     }
 }

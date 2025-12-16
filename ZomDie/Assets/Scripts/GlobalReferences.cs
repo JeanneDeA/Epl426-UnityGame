@@ -14,6 +14,12 @@ public class GlobalReferences : MonoBehaviour
 
     public GameObject m_bloodSplatterEffectPrefab;
 
+    public GameObject m_ammoBoxPrefab;
+
+    public GameObject m_grenadePrefab;
+
+    public GameObject m_smokeGrenadePrefab;
+
     public int m_waveNumber = 0;
 
     /// <summary>

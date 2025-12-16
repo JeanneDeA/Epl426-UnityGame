@@ -42,10 +42,11 @@ public class ZombieSpawController : MonoBehaviour
 
     private void StartNextWave()
     {
+       RefillManager.m_instance.RefillAll();
        m_currentZombiesAlive.Clear();
        m_currentWave++;
-        GlobalReferences.m_instance.m_waveNumber = m_currentWave;
-        StartCoroutine(SpawnZombiesInWave());
+       GlobalReferences.m_instance.m_waveNumber = m_currentWave;
+       StartCoroutine(SpawnZombiesInWave());
     }
 
     private IEnumerator SpawnZombiesInWave()
@@ -58,10 +59,7 @@ public class ZombieSpawController : MonoBehaviour
             Vector3 spawnPosition = m_SpawnLocations[selectedLocationIndex].transform.position + spawnOffset;
             var zombie = Instantiate(m_zombiePrefab, spawnPosition, Quaternion.identity);
             Z_Enemy zombieComponent = zombie.GetComponent<Z_Enemy>();
-            if(i %2 == 0)
-            {
-                zombieComponent.m_chaseZombie = true; // Make every second zombie a chase zombie
-            }
+            zombieComponent.m_chaseZombie = true; // Make every second zombie a chase zombie
             m_currentZombiesAlive.Add(zombieComponent);
             yield return new WaitForSeconds(m_zombieSpawnDelay);
         }   

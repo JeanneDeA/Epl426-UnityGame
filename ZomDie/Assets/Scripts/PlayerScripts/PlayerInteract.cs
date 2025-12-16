@@ -40,7 +40,7 @@ public class PlayerInteract : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, m_rayDistance, m_mask))
         {
-            Debug.Log("Hit: " + hitInfo.collider.name);
+            //Debug.Log("Hit: " + hitInfo.collider.name);
             //check if the object we hit has an interactable component
             Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
             if (interactable != null)
@@ -73,17 +73,17 @@ public class PlayerInteract : MonoBehaviour
         }
         if (m_hoveredWeapon != null)
         {
-            Debug.Log("No longer hovering over weapon");
+           // Debug.Log("No longer hovering over weapon");
             RemoveOutlineWeapon();
         }
         if(m_hoveredAmmoBox != null)
         {
-            Debug.Log("No longer hovering over ammo box");
+           // Debug.Log("No longer hovering over ammo box");
             RemoveOutlineAmmoBox();
         }
         if(m_hoveredGrenade != null)
         {
-            Debug.Log("No longer hovering over grenade");
+           // Debug.Log("No longer hovering over grenade");
             RemoveOutlineGrenade();
         }
     }
@@ -117,7 +117,7 @@ public class PlayerInteract : MonoBehaviour
 
     public void RemoveOutlineGrenade()
     {
-        Debug.Log("Removing Outline from grenade");
+       // Debug.Log("Removing Outline from grenade");
         var outlineComp = m_hoveredGrenade.GetComponent<Outline>();
             if (outlineComp != null)
             {
@@ -128,7 +128,7 @@ public class PlayerInteract : MonoBehaviour
 
     public void RemoveOutlineAmmoBox()
     {
-        Debug.Log("Removing Outline from ammo box");
+        //Debug.Log("Removing Outline from ammo box");
         var outlineComp = m_hoveredAmmoBox.GetComponent<Outline>();
             if (outlineComp != null)
             {
@@ -139,7 +139,7 @@ public class PlayerInteract : MonoBehaviour
 
     public void RemoveOutlineWeapon()
     {
-        Debug.Log("Removing Outline from weapon");
+       // Debug.Log("Removing Outline from weapon");
         var outlineComp = m_hoveredWeapon.GetComponent<Outline>();
             if (outlineComp != null)
             {

@@ -112,25 +112,6 @@ This system allows dynamic and reactive enemy behavior.
 * Allows designers to specify respawn waves
 * Enhances replayability and strategic decision-making
 
-
-##  Responsibilities
-
-### Pantelis Kanaris
-
-* Inventory System
-* Dynamic Pickup Respawn System
-* Custom Zombie Wave Spawner
-* Player Movement & Camera
-* Interaction & Item Handling
-
-### Ioanna Hadjiandreou
-
-* Zombie AI State Machine
-* User Interface
-* Health & Damage System
-* Weapon Animations (50%)
-* Scene Creation & Setup
-
 ---
 
 ##  Engine & Tools

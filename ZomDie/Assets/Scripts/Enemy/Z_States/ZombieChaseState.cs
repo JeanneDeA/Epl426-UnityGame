@@ -19,18 +19,25 @@ public class ZombieChaseState : StateMachineBehaviour
     private Transform m_player;
     private NavMeshAgent m_agent;
 
+    private ZombieAudio m_zombieAudio;
 
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_player = GameObject.FindGameObjectWithTag("Player").transform;
         m_agent = animator.GetComponent<NavMeshAgent>();
-
+        m_zombieAudio = animator.GetComponentInChildren<ZombieAudio>();
         m_agent.speed = m_chasingSpeed;
         if (m_chaseZombie)
         {
             m_stopChaseDistance = 1005f;
         }
+
+        if (SoundManager.m_instance != null && m_zombieAudio != null)
+        {
+            m_zombieAudio.PlayChaseLoop(SoundManager.m_instance.m_zombieChaseSound);
+        }
+            
 
     }
 
@@ -41,11 +48,11 @@ public class ZombieChaseState : StateMachineBehaviour
         //    SoundManager.m_instance.m_zombieChannel.clip = SoundManager.m_instance.m_zombieChaseSound;
         //    SoundManager.m_instance.m_zombieChannel.PlayDelayed(1f);
         //}
-           if(SoundManager.m_instance != null && !SoundManager.m_instance.m_zombieChannel.isPlaying)
-        {
-            //SoundManager.m_instance.m_zombieChannel.clip = SoundManager.m_instance.m_zombieWalkSound;
-            SoundManager.m_instance.m_zombieChannel.PlayOneShot(SoundManager.m_instance.m_zombieChaseSound);
-        }
+        //   if(SoundManager.m_instance != null && !SoundManager.m_instance.m_zombieChannel.isPlaying)
+        //{
+        //    //SoundManager.m_instance.m_zombieChannel.clip = SoundManager.m_instance.m_zombieWalkSound;
+        //    SoundManager.m_instance.m_zombieChannel.PlayOneShot(SoundManager.m_instance.m_zombieChaseSound);
+        //}
 
         m_agent.SetDestination(m_player.position);
         animator.transform.LookAt(m_player);
@@ -72,6 +79,10 @@ public class ZombieChaseState : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_agent.SetDestination(animator.transform.position);
-        SoundManager.m_instance.m_zombieChannel.Stop();
+        if (m_zombieAudio != null)
+        {
+            m_zombieAudio.StopLoop();
+        }
+       
     }
 }

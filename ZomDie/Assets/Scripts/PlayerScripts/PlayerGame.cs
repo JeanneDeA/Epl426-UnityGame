@@ -11,6 +11,7 @@ public class PlayerGame : MonoBehaviour
     private void Awake()
     {
         m_healthComponent = GetComponent<PlayerHealth>();
+        SoundManager.m_instance.PlayBackgroundMusic();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -18,7 +19,7 @@ public class PlayerGame : MonoBehaviour
         {
             if (!m_healthComponent.IsDead())
             {
-                Debug.Log("Player hit by zombie hand!");
+               // Debug.Log("Player hit by zombie hand!");
                 m_healthComponent.TakeDamage(10);
             }
           

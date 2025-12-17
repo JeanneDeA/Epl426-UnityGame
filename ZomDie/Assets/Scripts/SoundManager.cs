@@ -34,7 +34,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip m_playerDieSound;
     public AudioClip m_playerDeadMusic;
 
-
+    [Header("Music")]
+    public AudioSource m_musicSource;
+    public AudioClip m_backgroundMusic;
     private void Awake()
     {
         if (m_instance != null && m_instance != this)
@@ -92,5 +94,34 @@ public class SoundManager : MonoBehaviour
                 break;
         }
     }
+
+    public void PlayBackgroundMusic()
+    {
+        if (m_musicSource == null || m_backgroundMusic == null)
+            return;
+
+        if (m_musicSource.clip != m_backgroundMusic)
+        {
+            m_musicSource.clip = m_backgroundMusic;
+            m_musicSource.loop = true;
+            m_musicSource.Play();
+        }
+        else if (!m_musicSource.isPlaying)
+        {
+            m_musicSource.Play();
+        }
+    }
+
+    public void StopMusic()
+    {
+        if (m_musicSource != null)
+            m_musicSource.Stop();
+    }
+
+    private void Start()
+    {
+        PlayBackgroundMusic();
+    }
+
 }
 

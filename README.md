@@ -1,4 +1,4 @@
-# Asylum Survival – Unity Zombie Wave Shooter
+# Asylum Survival – ZomDie
 
 ## Game Overview
 

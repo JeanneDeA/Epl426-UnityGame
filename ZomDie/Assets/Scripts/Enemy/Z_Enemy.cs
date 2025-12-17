@@ -100,6 +100,7 @@ public class Z_Enemy : MonoBehaviour
             m_animator.SetTrigger("DIE_F");
         }
         SoundManager.m_instance.m_zombieChannel2.PlayOneShot(SoundManager.m_instance.m_zombieDieSound);
+        GetComponent<CapsuleCollider>().enabled = false;
     }
 
     void LateUpdate()
